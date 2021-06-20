@@ -63,3 +63,14 @@ myGraph.addEdge('0', '2');
 myGraph.addEdge('6', '5');
 
 myGraph.showConnections();
+
+function traverse(node) {
+  const tree = { value: node.value }
+  tree.left = node.left === null
+    ? null
+    : traverse(node.left)
+  tree.right = node.right === null
+    ? null
+    : traverse(node.right)
+  return tree
+}
